@@ -33,3 +33,27 @@
  #linkList > * {
   margin: 1rem;
  }
+
+ /* FOOD  */
+
+ .food {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+ }
+
+ .food > * {
+  padding: 0.5rem;
+  border-right: 1px solid black;
+  width: 10vw;
+}
+
+.numItem {
+  text-align: end;
+}
+
+.button_to {
+  display: flex;
+  justify-content: center;
+}
