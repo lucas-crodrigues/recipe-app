@@ -2,14 +2,20 @@
 
 <h1>Recipes</h1>
 
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
-    <hr>
-  <% end %>
+<div id="newFood">
+<%= link_to "Add recipe", new_recipe_path %>
 </div>
 
-<%= link_to "New recipe", new_recipe_path %>
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <div class="recipe-container">
+    <%= render recipe %>
+    <div class="recipe-options">
+    <p>
+      <%= link_to "Show recipe", recipe %>
+    </p>
+    <%= button_to "Delete recipe", @recipe, method: :delete %>
+    </div>
+    </div>
+  <% end %>
+</div>

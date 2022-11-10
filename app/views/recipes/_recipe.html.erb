@@ -1,36 +1,14 @@
-<div id="<%= dom_id recipe %>">
-<p>
-  <strong>Recipe #<%= recipe.id %></strong>
-</p>
-
-<p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
-
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
+<div id="<%= dom_id recipe %>" class="recipe">
+  <div >
+    <h3>
+      <strong>Recipe #<%= recipe.id %></strong>
+    </h3>
+    <p>
+      <%= recipe.name %>
+    </p>
+  </div>
 
   <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
+    <%= truncate(recipe.description, length: 150) %>
   </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= recipe.user_id %>
-  </p>
-
 </div>
