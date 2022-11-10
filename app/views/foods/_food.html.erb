@@ -1,15 +1,7 @@
 <div id="<%= dom_id food %>" class="food">
 <p>
-  <strong>#<%= food.id %></strong>
-</p>
-
-<p>
   <%= food.name %>
 </p>
-
-<p>
-    <%= food.measurement_unit %>
-  </p>
 
   <p class="numItem">
     $ <%= food.price %>
@@ -17,10 +9,6 @@
 
   <p class="numItem">
     <%= food.quantity %> <%= food.measurement_unit %>
-  </p>
-
-  <p class="numItem">
-    <%= food.user_id %>
   </p>
 
   <%= button_to "Destroy this food", @food, method: :delete %>

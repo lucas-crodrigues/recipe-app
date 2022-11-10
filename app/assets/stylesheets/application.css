@@ -43,10 +43,14 @@
   width: 80vw;
  }
 
+ #foodTable > * {
+  text-align: center;
+ }
+
  .food > * {
   padding: 0.5rem;
   border-right: 1px solid black;
-  width: 10vw;
+  width: 20vw;
 }
 
 .numItem {
@@ -56,4 +60,19 @@
 .button_to {
   display: flex;
   justify-content: center;
+}
+
+#newFood {
+  display: flex;
+  justify-content: flex-end;
+  width: 80vw;
+}
+
+#newFood > * {
+  border: 2px solid green;
+  border-radius: 3px;
+  background-color: rgb(81, 159, 81);
+  padding: 0.7rem;
+  text-decoration: none;
+  color: white;
 }
