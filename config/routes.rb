@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   resources :users
   resources :foods
 
-  get '/general_shopping_list', to: 'shopping#index', as: 'general_shopping_list'
-
   resources :recipes do
     resources :recipe_foods
+    get '/add_food/', to: 'recipe_foods#add_food'
+    get '/shopping_list', to: 'recipes#shopping_list'
   end
-   resources :public_recipes
+  get '/public_recipes', to: 'recipes#public_recipes'
+  get '/general_shopping_list', to: 'foods#general_shopping_list'
  
 end
