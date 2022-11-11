@@ -2,7 +2,6 @@
   <% if recipe_food.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
-
       <ul>
         <% recipe_food.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-
   <div>
     <%= form.label :quantity, style: "display: block" %>
     <%= form.number_field :quantity %>
