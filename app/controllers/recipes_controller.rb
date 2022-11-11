@@ -1,9 +1,10 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.where(user_id: current_user.id)
+    @recipes = current_user.recipes
   end
 
   def public_recipes
@@ -11,7 +12,7 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show;
+  def show
     @recipe_foods = @recipe.recipe_foods.includes(:food, :recipe)
   end
 
@@ -25,8 +26,9 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
+    @user = current_user
     @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
+    @recipe.user = @user
 
     respond_to do |format|
       if @recipe.save
