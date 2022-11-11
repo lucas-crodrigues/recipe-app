@@ -99,3 +99,18 @@ header {
   display: flex;
   align-items: center;
 }
+
+.nav {
+  display: flex;
+  font-size: 20px;
+  margin: 10px;
+  list-style: none;
+}
+
+.navbar-btn {
+  text-decoration: none;
+  color: #f8efef;
+  font-size: 20px;
+  padding: 10px;
+  list-style: none;
+}
