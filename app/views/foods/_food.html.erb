@@ -1,15 +1,13 @@
-<div id="<%= dom_id food %>" class="food">
-  <p>
-    <%= food.name %>
-  </p>
-
-  <p class="numItem">
-    $ <%= food.price %>
-  </p>
-
-  <p class="numItem">
-    <%= food.quantity %> <%= food.measurement_unit %>
-  </p>
-
-  <%= button_to "Delete food", @food, method: :delete %>
-</div>
+<tr>
+  <td><%= food.name %></td>
+  <td><%= food.measurement_unit %></td>
+  <td>$<%= food.price %></td>
+  <td><%= food.quantity %></td>
+  <td >
+    <ul class="d-sm-flex">
+      <li><%= link_to "Show", food, class:"m-2 btn btn-primary" %></li>
+      |
+      <li><%= button_to "Delete", food, method: :delete,class: "m-2 btn btn-danger" %></li>
+    </ul>
+  </td>
+</tr>
