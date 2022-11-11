@@ -69,10 +69,10 @@ To run tests, please run this command
 $ rspec ./spec/#{file_path}/#{filename}_spec.rb
 ```
 
-or to run all tests
+or, to run all tests in folder
 
 ```
-$ rspec ./spec/*_spec.rb
+$ rspec ./spec/#{file_path}/*_spec.rb
 ```
 
 ## Authors
