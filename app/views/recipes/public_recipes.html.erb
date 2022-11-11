@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Public Recipes</h1>
+
+<div id="<%= dom_id recipe %>" class="recipe">
+  
+  <% if @recipes.count > 0 %>
+    <% @recipes.each do |recipe| %>
+      <%= render 'public_recipe', recipe: %>
+    <% end %>
+  <% else %>
+    <h3>No public recipes posted</h3>
+  <% end %>
+</div>
