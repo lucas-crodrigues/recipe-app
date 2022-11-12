@@ -77,6 +77,14 @@ $ rspec ./spec/#{file_path}/*_spec.rb
 
 ## Authors
 
+👤 **Fernando César da Silva**
+
+- GitHub: [@fernando-silvabr66](https://github.com/fernando-silvabr66)
+
+- Twitter: [@fsilvabr1](https://twitter.com/fsilvabr1)
+
+- LinkedIn: [https://linkedin.com/in/fernando-silvabr66](https://linkedin.com/in/fernando-silvabr66)
+
 👤 **Lucas Costa Rodrigues**
 
 - GitHub: [@lucas-crodrigues](https://github.com/lucas-crodrigues)
