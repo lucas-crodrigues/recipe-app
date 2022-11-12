@@ -1,27 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  subject { Food.new(name: 'Tomato', price: 7.99, measurement_unit: 'Kg', user_id: 1) }
-
-  before { subject.save }
+  before(:each) do
+    @user = User.new(name: 'Fernando', email: 'fernando.silvabr66@gmail.com', password: '123456',
+                     password_confirmation: '123456')
+    @food = Food.new(name: 'Test Food', measurement_unit: 'Kg', price: 10, user: @user)
+  end
 
   it 'name should be present' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+    @user.name = nil
+    expect(@user).to_not be_valid
   end
 
   it 'measurement_unit should be present' do
-    subject.measurement_unit = nil
-    expect(subject).to_not be_valid
+    @food.measurement_unit = nil
+    expect(@food).to_not be_valid
   end
 
-  it 'user_id must be a float greater or equal than zero' do
-    subject.user_id = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'Price must be a float greater or equal than zero' do
-    subject.price = nil
-    expect(subject).to_not be_valid
+  it 'price should be equal to or greater that 1' do
+    @food.price = 1
+    expect(@food).to be_valid
   end
 end

@@ -1,9 +1,10 @@
 class FoodsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_food, only: %i[show edit update destroy]
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.where(user_id: current_user.id)
+    @foods = current_user.foods
   end
 
   # GET /foods/1 or /foods/1.json
@@ -47,6 +48,19 @@ class FoodsController < ApplicationController
     end
   end
 
+  def general_shopping_list
+    @total_value = 0
+    @items_to_buy = 0
+    @foods = current_user.foods
+    @foods.each do |food|
+      recipe_food = RecipeFood.find_by(food:)
+      next if recipe_food.nil?
+
+      @items_to_buy += 1 if recipe_food.process_quantity(food).positive?
+      @total_value += recipe_food.process_cost(food)
+    end
+  end
+
   # DELETE /foods/1 or /foods/1.json
   def destroy
     @food.destroy
@@ -66,6 +80,6 @@ class FoodsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
   end
 end

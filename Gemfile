@@ -47,6 +47,9 @@ gem 'bootsnap', require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 
+# Use bootstrap-sass to process CSS
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -81,3 +84,5 @@ gem 'ffi'
 gem 'devise'
 
 gem 'cancancan'
+
+gem 'rubocop', '>= 1.0', '< 2.0'

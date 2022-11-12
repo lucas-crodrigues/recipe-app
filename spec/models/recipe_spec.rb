@@ -1,35 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  subject do
-    Recipe.new(name: 'Rice', preparation_time: 20, cooking_time: 30, description: 'Boiled rice', public: true,
-               user_id: 1)
+  before(:each) do
+    @user = User.new(name: 'Fernando', email: 'fernando.silvabr66@gmail.com', password: '123456',
+                     password_confirmation: '123456')
+    @recipe = Recipe.new(name: 'Recipe-1', preparation_time: 1, cooking_time: 1, description: 'Test-1', public: true,
+                         user: @user)
   end
 
-  before { subject.save }
-
   it 'name should be present' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+    @user.name = nil
+    expect(@user).to_not be_valid
   end
 
   it 'description should be present' do
-    subject.description = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'user_id must be a float greater or equal than zero' do
-    subject.user_id = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'Cooking_time must be a float greater or equal than zero' do
-    subject.cooking_time = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'Preparation_time must be a float greater or equal than zero' do
-    subject.preparation_time = nil
-    expect(subject).to_not be_valid
+    @recipe.description = nil
+    expect(@recipe).to_not be_valid
   end
 end

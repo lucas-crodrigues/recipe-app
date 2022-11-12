@@ -1,10 +1,15 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-  has_many :recipe_foods
+  has_many :recipe_foods, dependent: :destroy
+  # has_rich_text :description
 
-  validates :name, presence: true
-  validates :description, presence: true
-  validates :preparation_time, numericality: { greater_than_or_equal_to: 0 }
-  validates :cooking_time, numericality: { greater_than_or_equal_to: 0 }
-  validates :user_id, presence: true
+  validates :name, :preparation_time, :description, presence: true
+
+  def total_cost
+    total = 0
+    recipe_foods.includes(:food).each do |recipe_food|
+      total += recipe_food.quantity * recipe_food.food.price
+    end
+    total.round(2)
+  end
 end
