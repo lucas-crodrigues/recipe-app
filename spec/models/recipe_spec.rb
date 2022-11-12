@@ -12,17 +12,7 @@ RSpec.describe Recipe, type: :model do
     @user.name = nil
     expect(@user).to_not be_valid
   end
-
-  it 'preparation_time should be present' do
-    @recipe.preparation_time = -1
-    expect(@recipe).to_not be_valid
-  end
-
-  it 'cooking_time should be equal to or greater than 1' do
-    @recipe.cooking_time = 0
-    expect(@recipe).to_not be_valid
-  end
-
+  
   it 'description should be present' do
     @recipe.description = nil
     expect(@recipe).to_not be_valid
